@@ -155,14 +155,6 @@ public class MainActivity extends CommonBaseActivity
                     .replace(R.id.content_main, fragment, tag)
                     .addToBackStack(bs_tag)
                     .commit();
-        } else if (id == R.id.nav_pivot) {
-            fragment = manager.findFragmentByTag(tag);
-            if (fragment == null)
-                fragment = new PivotFragment();
-            manager.beginTransaction()
-                    .replace(R.id.content_main, fragment, tag)
-                    .addToBackStack(bs_tag)
-                    .commit();
         } else if (id == R.id.nav_data) {
             fragment = manager.findFragmentByTag(tag);
             if (fragment == null)

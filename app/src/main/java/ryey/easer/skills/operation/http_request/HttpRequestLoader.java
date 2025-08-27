@@ -30,6 +30,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import ryey.easer.skills.operation.OperationLoader;
+import java.nio.charset.StandardCharsets;
 
 public class HttpRequestLoader extends OperationLoader<HttpRequestOperationData> {
     public HttpRequestLoader(Context context) {
@@ -82,7 +83,7 @@ public class HttpRequestLoader extends OperationLoader<HttpRequestOperationData>
 
                         // send POST data
                         try (final DataOutputStream out = new DataOutputStream(urlConnection.getOutputStream())) {
-                            out.writeBytes(data.postData.raw);
+                            out.write(data.postData.raw.getBytes(StandardCharsets.UTF_8));
                             out.flush();
                         }
                         break;

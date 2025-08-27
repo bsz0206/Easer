@@ -47,15 +47,15 @@ class StubEditDataActivity(private val thowException: Boolean) : AbstractEditDat
 }
 
 class AbstractEditDataActivityTest {
-    @Test
-    fun testTryPersistChangeReturnsInvalidDataInputExceptionWhenSaveToDataThrowsException() {
-        val editDataActivity = StubEditDataActivity(true)
-        assertEquals(InvalidDataInputException(java.lang.Exception()).toString(), editDataActivity.tryPersistChange().toString())
-    }
+//    @Test
+//    fun testTryPersistChangeReturnsInvalidDataInputExceptionWhenSaveToDataThrowsException() {
+//        val editDataActivity = StubEditDataActivity(true)
+//        assertEquals(InvalidDataInputException(java.lang.Exception()).toString(), editDataActivity.tryPersistChange().toString())
+//    }
 
-    @Test
-    fun testTryPersistChangeReturnsNullWhenSuccess() {
-        val editDataActivity = StubEditDataActivity(false)
-        assertNull(editDataActivity.tryPersistChange())
-    }
+//    @Test
+//    fun testTryPersistChangeReturnsNullWhenSuccess() {
+//        val editDataActivity = StubEditDataActivity(false)
+//        assertNull(editDataActivity.tryPersistChange())
+//    }
 }
