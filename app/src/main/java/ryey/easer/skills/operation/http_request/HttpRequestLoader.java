@@ -79,11 +79,12 @@ public class HttpRequestLoader extends OperationLoader<HttpRequestOperationData>
                         // set header for POST request
                         urlConnection.setDoOutput(true);
                         urlConnection.addRequestProperty("Content-Type", data.contentType.raw);
-                        urlConnection.setFixedLengthStreamingMode(data.postData.raw.length());
+                        byte[] postDataBytes = data.postData.raw.getBytes(StandardCharsets.UTF_8);
+                        urlConnection.setFixedLengthStreamingMode(postDataBytes.length);
 
                         // send POST data
                         try (final DataOutputStream out = new DataOutputStream(urlConnection.getOutputStream())) {
-                            out.write(data.postData.raw.getBytes(StandardCharsets.UTF_8));
+                            out.write(postDataBytes);
                             out.flush();
                         }
                         break;
